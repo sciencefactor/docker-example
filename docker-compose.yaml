@@ -4,9 +4,9 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-      - "${PWD}/init/selenoid:/etc/selenoid"
-      - "${PWD}/work/selenoid/video:/opt/selenoid/video"
-      - "${PWD}/work/selenoid/logs:/opt/selenoid/logs"
+      - "./init/selenoid:/etc/selenoid"
+      - "./work/selenoid/video:/opt/selenoid/video"
+      - "./work/selenoid/logs:/opt/selenoid/logs"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=work/selenoid/video
@@ -18,15 +18,7 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     volumes:
-      - ${PWD}/work/jenkins:/var/jenkins_home
+      - "./work/jenkins:/var/jenkins_home"
     ports:
-      - 8000:8080
-    network_mode: bridge
-
-  jira:
-    image: atlassian/jira-software
-    volumes:
-      - "${PWD}/work/jira:/var/atlassian/application-data/jira"
-    ports:
-      - "9999:8080"
+      - "8000:8080"
     network_mode: bridge
