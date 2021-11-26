@@ -24,7 +24,7 @@ public class GithubIssueTest {
 
     @BeforeEach
     public void initDriver() throws IOException {
-        final String url = "http://192.168.90.245:4444/wd/hub";
+        final String url = "http://127.0.0.1:4444/wd/hub";
         WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
         driver.manage().window().setSize(new Dimension(1920,1024));
         WebDriverRunner.setWebDriver(driver);
@@ -32,21 +32,21 @@ public class GithubIssueTest {
 
     @Test
     @Issue("AE-2")
-    @DisplayName("Открываем сщуствующую Issue")
+    @DisplayName("aawerawer")
     public void testIssue() {
-        step("Открываем главную страницу", () -> {
+        step("awerawer", () -> {
             open("https://github.com");
         });
-        step("Открываем страницу с репозиторием", () -> {
+        step("RWara", () -> {
             $x("//*[contains(@class, 'header-search-input')]").click();
             $x("//*[contains(@class, 'header-search-input')]").sendKeys("eroshenkoam/allure-example");
             $x("//*[contains(@class, 'header-search-input')]").submit();
             $x("//a[@href='/eroshenkoam/allure-example']").click();
         });
-        step("Открываем страницу с задачами в репозитории", () -> {
+        step("awerawer", () -> {
             $x("//a[contains(@data-selected-links, 'repo_issues')]").click();
         });
-        step("Проверяем title", () -> {
+        step("aweraewrtitle", () -> {
             $x("//a[@id='issue_12_link']").click();
             $x("//h1[contains(@class, 'gh-header-title')]").should(Condition.text("Hello, World!"));
         });
