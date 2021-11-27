@@ -24,10 +24,12 @@ public class GithubIssueTest {
 
     @BeforeEach
     public void initDriver() throws IOException {
-        String wrongUrl = "http://selenoid:4444/wd/hub";
-        final String url = "http://172.18.0.3:4444/wd/hub";
-        System.out.println("Selenide address: " + new URL(wrongUrl));
-        System.out.println("Driver will try to connect to Selenoid with address: " + new URL(url));
+        final String url;
+        if (System.getProperty("env", "remote").equals("local")) {
+            url = "http://localhost:4444/wd/hub";
+        } else {
+            url = "http://selenoid:4444/wd/hub";
+        }
         WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
         driver.manage().window().setSize(new Dimension(1920, 1024));
         WebDriverRunner.setWebDriver(driver);
@@ -37,6 +39,21 @@ public class GithubIssueTest {
     @Issue("AE-2")
     @DisplayName("aawerawer")
     public void testIssue() {
+        step("awerawer", () -> {
+            open("https://github.com");
+        });
+        step("RWara", () -> {
+            $x("//*[contains(@class, 'header-search-input')]").click();
+            $x("//*[contains(@class, 'header-search-input')]").sendKeys("eroshenkoam/allure-example");
+            $x("//*[contains(@class, 'header-search-input')]").submit();
+            $x("//a[@href='/eroshenkoam/allure-example']").click();
+        });
+    }
+
+    @Test
+    @Issue("AE-3")
+    @DisplayName("aawerawer")
+    public void testIssue2() {
         step("awerawer", () -> {
             open("https://github.com");
         });
