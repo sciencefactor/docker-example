@@ -24,11 +24,16 @@ public class GithubIssueTest {
 
     @BeforeEach
     public void initDriver() throws IOException {
-        final String url = "http://selenoid:4444/wd/hub";
-        URL remoteSelenoid = new URL(url);
-        System.out.println("Driver will try to connect to Selenoid with address: " + remoteSelenoid);
-        WebDriver driver = new RemoteWebDriver(remoteSelenoid, DesiredCapabilities.chrome());
-        driver.manage().window().setSize(new Dimension(1920,1024));
+        final String url;
+        System.out.println(System.getProperty("env"));
+        if (System.getProperty("env", "remote").equals("local")) {
+            url = "http://localhost:4444/wd/hub";
+        } else {
+            url = "http://selenoid:4444/wd/hub";
+        }
+        System.out.println("Driver will try to connect to Selenoid with address: " + new URL(url));
+        WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
+        driver.manage().window().setSize(new Dimension(1920, 1024));
         WebDriverRunner.setWebDriver(driver);
     }
 
