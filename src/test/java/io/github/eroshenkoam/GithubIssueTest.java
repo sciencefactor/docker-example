@@ -24,15 +24,15 @@ public class GithubIssueTest {
 
     @BeforeEach
     public void initDriver() throws IOException {
-        final String url;
-        if (System.getProperty("env", "remote").equals("local")) {
-            url = "http://localhost:4444/wd/hub";
-        } else {
-            url = "http://selenoid:4444/wd/hub";
-        }
-        WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
-        driver.manage().window().setSize(new Dimension(1920, 1024));
-        WebDriverRunner.setWebDriver(driver);
+//        final String url;
+//        if (System.getProperty("env", "remote").equals("local")) {
+//            url = "http://localhost:4444/wd/hub";
+//        } else {
+//            url = "http://selenoid:4444/wd/hub";
+//        }
+//        WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
+//        driver.manage().window().setSize(new Dimension(1920, 1024));
+//        WebDriverRunner.setWebDriver(driver);
     }
 
     @Test
