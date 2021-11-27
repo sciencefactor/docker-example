@@ -43,14 +43,6 @@ public class GithubIssueTest {
             $x("//*[contains(@class, 'header-search-input')]").submit();
             $x("//a[@href='/eroshenkoam/allure-example']").click();
         });
-        step("awerawer", () -> {
-            $x("//a[contains(@data-selected-links, 'repo_issues')]").click();
-        });
-        step("aweraewrtitle", () -> {
-            $x("//a[@id='issue_12_link']").click();
-            $x("//h1[contains(@class, 'gh-header-title')]").should(Condition.text("Hello, World!"));
-        });
-
     }
 
     @AfterEach
