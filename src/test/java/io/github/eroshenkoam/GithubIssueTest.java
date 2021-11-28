@@ -30,30 +30,16 @@ public class GithubIssueTest {
 //        } else {
 //            url = "http://selenoid:4444/wd/hub";
 //        }
-//        WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
-//        driver.manage().window().setSize(new Dimension(1920, 1024));
-//        WebDriverRunner.setWebDriver(driver);
+        final String url = "http://selenoid:4444/wd/hub";
+        WebDriver driver = new RemoteWebDriver(new URL(url), DesiredCapabilities.chrome());
+        driver.manage().window().setSize(new Dimension(1920, 1024));
+        WebDriverRunner.setWebDriver(driver);
     }
 
     @Test
     @Issue("AE-2")
     @DisplayName("aawerawer")
     public void testIssue() {
-        step("awerawer", () -> {
-            open("https://github.com");
-        });
-        step("RWara", () -> {
-            $x("//*[contains(@class, 'header-search-input')]").click();
-            $x("//*[contains(@class, 'header-search-input')]").sendKeys("eroshenkoam/allure-example");
-            $x("//*[contains(@class, 'header-search-input')]").submit();
-            $x("//a[@href='/eroshenkoam/allure-example']").click();
-        });
-    }
-
-    @Test
-    @Issue("AE-3")
-    @DisplayName("aawerawer")
-    public void testIssue2() {
         step("awerawer", () -> {
             open("https://github.com");
         });
