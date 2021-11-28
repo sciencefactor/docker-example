@@ -8,3 +8,6 @@ build
 
 # Docker
 work
+
+#Allure
+allure-results

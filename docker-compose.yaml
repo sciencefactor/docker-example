@@ -29,3 +29,4 @@ services:
       - selenoid
     ports:
       - "8000:8080"
+

@@ -1,6 +1,5 @@
 package io.github.eroshenkoam;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Issue;
 import org.junit.jupiter.api.AfterEach;
